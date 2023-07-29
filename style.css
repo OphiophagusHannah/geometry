@@ -69,6 +69,7 @@ dfn {
 }
 
 hr {
+  -moz-box-sizing: content-box;
   box-sizing: content-box;
   height: 0;
 }
@@ -177,6 +178,8 @@ input[type=radio] {
 
 input[type=search] {
   -webkit-appearance: textfield;
+  -moz-box-sizing: content-box;
+  -webkit-box-sizing: content-box;
   box-sizing: content-box;
 }
 
@@ -393,10 +396,10 @@ main {
 .fullview__item-titlewrap {
   padding: 1.5rem;
   background: #d0d0d0;
+  height: 100vh;
 }
 
 .fullview__title {
-  display: none;
   color: var(--color-title-full);
   font-weight: normal;
   font-size: 1rem;
@@ -450,7 +453,7 @@ main {
     padding: 1rem;
   }
   .grid {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
@@ -532,6 +535,7 @@ main {
     justify-self: start;
   }
   .side {
+    -webkit-writing-mode: vertical-rl;
     writing-mode: vertical-rl;
     grid-area: 2/3/2/3;
   }
@@ -545,9 +549,10 @@ main {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    font-size: 1.15rem;
+    font-size: 1rem;
     position: relative;
     width: 100%;
+    white-space: nowrap;
     pointer-events: auto;
   }
   .grid__toggle:focus {
@@ -563,12 +568,14 @@ main {
     display: none;
   }
   .grid__toggle-back {
-    opacity: 0;
+    opacity: 1;
     position: absolute;
     height: 50%;
     bottom: 0;
     display: flex;
     align-items: center;
+    bottom: -1.5rem;
+    right: 0.5rem;
   }
   .grid__toggle-icon {
     width: 0.75rem;
@@ -586,6 +593,7 @@ main {
   .grid__item-title,
   .grid__item-number {
     z-index: 100;
+    -webkit-writing-mode: vertical-rl;
     writing-mode: vertical-rl;
     transition: 0.3s linear;
   }
@@ -608,21 +616,20 @@ main {
     font-size: 1.5rem;
   }
   .fullview {
-    position: absolute;
     top: 0;
     left: 0;
     width: 100%;
-    height: 100vh;
     pointer-events: none;
   }
   .fullview__title {
     display: block;
-    position: absolute;
+    position: fixed;
     margin: 2rem;
     line-height: 1;
     bottom: 0;
     top: auto;
     left: 0;
+    -webkit-writing-mode: vertical-rl;
     writing-mode: vertical-rl;
     transform: scale(-1);
   }
@@ -638,7 +645,7 @@ main {
     margin: 0;
   }
   .fullview__item .fullview__item-inner {
-    height: 100vh;
+    height: auto;
     width: 100vw;
   }
   .fullview__item-number {
@@ -648,23 +655,24 @@ main {
   }
   .fullview__item-titlewrap {
     align-self: end;
-    text-align: right;
-    background: none;
+    text-align: left;
     padding: 1.5rem;
+    height: 100vh !important;
+    display: block;
   }
   .fullview__item-title {
     font-size: 2.25rem;
   }
   .fullview__item-description {
     max-width: 360px;
-    margin-left: auto;
+    margin-right: auto;
   }
   .fullview,
   .fullview__item {
     opacity: 0;
   }
   .revealer {
-    position: absolute;
+    position: fixed;
     top: 100vh;
     left: 0;
     width: 100%;

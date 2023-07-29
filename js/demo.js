@@ -1,3 +1,4 @@
+
 {
     // Preload all the images in the page..
     imagesLoaded(document.querySelectorAll(['.fullview__item', '.grid__item-bg']), { background: true }, () => document.body.classList.remove('loading'));
@@ -56,6 +57,7 @@
                     ease: action === 'hide' ? 'Quad.easeIn' : 'Quad.easeOut',
                     startAt: action === 'hide' ? {} : { opacity: 0, y: '-150%' },
                     y: action === 'hide' ? '-150%' : '0%',
+                    x: action === 'hide' ? '-150%' : '0%',
                     opacity: action === 'hide' ? 0 : 1
                 });
 
@@ -64,6 +66,7 @@
                     ease: action === 'hide' ? 'Quad.easeOut' : 'Quad.easeIn',
                     startAt: action === 'hide' ? { opacity: 0, y: '50%' } : {},
                     y: action === 'hide' ? '0%' : '50%',
+                    x: action === 'hide' ? '0%' : '50%',
                     opacity: action === 'hide' ? 1 : 0
                 });
             }
